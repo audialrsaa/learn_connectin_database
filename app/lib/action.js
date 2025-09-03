@@ -1,9 +1,18 @@
 import connection from "./database"
 
-function getProducts() {
-    const [products] = connection.query(
+export async function getProducts() {
+    const [products] = await connection.query(
         `SELECT * FROM products`
-    ) //bisa juga execute
+    ) //bisa juga execute di connection.query
 
     return products 
+}
+
+export async function getUsers() {
+    
+    const [users] = await connection.query(
+        `SELECT * FROM users`
+    )
+
+    return users
 }
